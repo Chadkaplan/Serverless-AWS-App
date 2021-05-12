@@ -29,7 +29,8 @@ class App extends Component {
     ],
   };
   remove(id) {
-    let updatedInvoices = { ...this.state.invoices }.filter((i) => i.id !== id);
+    console.log(id);
+    let updatedInvoices = { ...this.state.invoices }.filter(i => i.id !== id);
     this.setState({ invoices: updatedInvoices });
   }
 
