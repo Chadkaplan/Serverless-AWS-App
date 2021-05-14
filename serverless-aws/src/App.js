@@ -1,3 +1,4 @@
+aws s3 sync build/s3://testinvoiceprocessing
 import React, { Component } from "react";
 import { Table, Button } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -39,17 +40,9 @@ class App extends Component {
 
   remove(id) {
     console.log(id);
-    let updatedInvoices = [...this.state.invoices].filter((i) => i.id !== id);
+    let updatedInvoices = [...this.state.invoices].filter(i => i.id !== id);
 
     this.setState({ invoices: updatedInvoices });
-  }
-
-  async componentDidMount() {
-    const response = await fetch(
-      "https://e106ldopga.execute-api.us-west-1.amazonaws.com/Dev"
-    );
-    const body = await response.json();
-    this.setState({ invoices: body, isLoading: false });
   }
 
   render() {
