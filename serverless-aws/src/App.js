@@ -1,4 +1,3 @@
-aws s3 sync build/s3://testinvoiceprocessing
 import React, { Component } from "react";
 import { Table, Button } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
