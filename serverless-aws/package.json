@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
+    "aws-sdk": "^2.910.0",
     "bootstrap": "^5.0.0",
     "font": "0.0.4",
     "font-awesome": "^4.7.0",
@@ -20,6 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "scan": "node ./bin/scanTable.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
