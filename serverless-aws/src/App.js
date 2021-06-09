@@ -12,30 +12,15 @@ import {
 class App extends Component {
   state = {
     isLoading: false,
-    invoices: [
-      {
-        id: 1,
-        vendor: "Nomad",
-        amount: 17000,
-        invoice: 1234,
-        date: "10/14/1992",
-      },
-      {
-        id: 2,
-        vendor: "Omad",
-        amount: 18000,
-        invoice: 5678,
-        date: "10/15/1992",
-      },
-      {
-        id: 3,
-        vendor: "Mad",
-        amount: 19000,
-        invoice: 9101,
-        date: "10/16/1992",
-      },
-    ],
+    invoices: []
   };
+  async componentDidMount() {
+    const response = await fetch(
+      "https://25z4xcdcga.execute-api.us-east-1.amazonaws.com/Dev"
+    );
+    const body = await response.json();
+    this.setState({ invoices: body, isLoading: true });
+  }
 
   remove(id) {
     console.log(id);
@@ -44,11 +29,6 @@ class App extends Component {
     this.setState({ invoices: updatedInvoices });
   }
 
-  async componentDidMount(){
-    const response = await fetch("https://25z4xcdcga.execute-api.us-east-1.amazonaws.com/Dev");
-    const body = await response.json();
-    this.setState({invoices:body, isLoading:false})
-  }
 
   render() {
     const isLoading = this.state.isLoading;
